@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎁 Just4You · Creatief Cadeau</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fdf5e6 0%, #f7e8d4 100%);
+            font-family: 'Georgia', 'Times New Roman', serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .kaart {
+            max-width: 550px;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 60px 30px 60px 30px;
+            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.25);
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(200, 170, 130, 0.3);
+        }
+
+        .creativiteit {
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #2c241a;
+        }
+
+        .creativiteit span {
+            background: linear-gradient(120deg, #c69c6d, #a57248);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 500;
+        }
+
+        .sterretje {
+            font-size: 2rem;
+            color: #dbb88c;
+            margin: 10px 0;
+        }
+
+        .boodschap {
+            font-size: 1rem;
+            color: #5c4a34;
+            border-top: 1px solid #ecdbba;
+            border-bottom: 1px solid #ecdbba;
+            padding: 18px 0;
+            margin: 20px 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .contact-blok {
+            background: #fef7ef;
+            border-radius: 35px;
+            padding: 25px 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            flex-wrap: wrap;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .icoon {
+            font-size: 1.8rem;
+            min-width: 45px;
+            text-align: center;
+        }
+
+        .link {
+            color: #9b6e42;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #e0c8b0;
+            word-break: break-all;
+        }
+
+        .link:hover {
+            color: #7a5434;
+            border-bottom-color: #c49a6c;
+        }
+
+        .knop {
+            background: #e8d9cc;
+            border: none;
+            border-radius: 40px;
+            padding: 5px 14px;
+            margin-left: 10px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            font-family: monospace;
+            transition: 0.1s;
+        }
+
+        .knop:active {
+            background: #d4c2b2;
+        }
+
+        .quote {
+            margin-top: 25px;
+            font-size: 0.75rem;
+            color: #bc9a77;
+            font-family: monospace;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 500px) {
+            .kaart {
+                padding: 25px 20px;
+            }
+            .creativiteit {
+                font-size: 1.7rem;
+            }
+            .item {
+                font-size: 0.9rem;
+                gap: 10px;
+            }
+            .icoon {
+                font-size: 1.4rem;
+                min-width: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="kaart">
+    <div class="creativiteit">
+        een cadeau vol <span>creativiteit</span>…
+    </div>
+    <div class="sterretje">✦ ✦ ✦</div>
+
+    <div class="boodschap">
+        Ieder geschenk is een verhaal.<br>
+        Vertel het jouwe met een unieke, persoonlijke ervaring.
+    </div>
+
+    <div class="contact-blok">
+        <div class="item">
+            <div class="icoon">📧</div>
+            <div>
+                <a href="mailto:just4you@proximus.be" class="link">just4you@proximus.be</a>
+                <button class="knop" data-kopie="just4you@proximus.be">📋 kopieer</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="icoon">📞</div>
+            <div>
+                <a href="tel:+32478911165" class="link">0478 91 11 65</a>
+                <button class="knop" data-kopie="0478 91 11 65">📋 kopieer</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="quote">
+        ✨ Meer info of vragen? Ik luister graag. ✨
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.knop').forEach(knop => {
+        knop.addEventListener('click', function() {
+            const tekst = this.getAttribute('data-kopie');
+            navigator.clipboard.writeText(tekst).then(() => {
+                const origineel = this.innerHTML;
+                this.innerHTML = '✓ gekopieerd!';
+                setTimeout(() => {
+                    this.innerHTML = origineel;
+                }, 1500);
+            });
+        });
+    });
+</script>
+</body>
+</html>
